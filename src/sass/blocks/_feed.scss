@@ -1,0 +1,234 @@
+.feed {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 10%;
+    position: relative;
+    &-filter {
+        width: 25%;
+        position: sticky;
+        top: 20%;
+    }
+    &-title {
+        margin-bottom: 40px;
+    }
+    &-content {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &-post {
+        width: 800px;
+        text-align: left;
+        margin-bottom: 80px;
+        position: relative;
+        &_info {
+            padding: 24px 12px 8px 12px;
+            background: rgb(213 213 213 / 68%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-radius: 0 0 12px 12px;
+        }
+        &_title {
+            border-bottom: 1px solid #b3b3b3;
+        }
+        &_event {
+            display: flex;
+            justify-content: flex-end;
+            align-items:center;
+        }
+        &_delete {
+            width: 30px;
+            height: 25px;
+            margin-left: 12px;
+            & img {
+                width: 100%;
+            }
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+        &_edit {
+            width: 30px;
+            height: 30px;
+            margin-left: 12px;
+            & img {
+                width: 100%;
+            }
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+        &_date {
+            text-align: right;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        &_action {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        &_counter {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            & span {
+                cursor: pointer;
+            }
+        }
+        &_like {
+            width: 25px;
+            height: 25px;
+            background: url('../img/not-like.svg') no-repeat center/contain;
+            margin-right: 24px;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+            &.like {
+                background: url('../img/like.svg') no-repeat center/contain;
+            }
+        }
+        &_comment {
+            width: 30px;
+            height: 25px;
+            background: url('../img/mess.svg') no-repeat center/contain;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
+    &-img {
+        width: 100%;
+        box-shadow: 0px 0px 12px rgba(6, 6, 6, 0.25);
+        border-radius: 12px 12px 0 0;
+        & img {
+            border-radius: 12px 12px 0 0;
+            width: 100%;
+        }
+        &_filter {
+            position: absolute;
+            opacity: 0;
+            overflow: hidden;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color:#ffffff;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            &::before {
+                position: absolute;
+                content: "";
+                left: 0;
+                bottom: -2px;
+                width: 0;
+                height: 3px;
+                background: $colorBtn;
+                transition: all 0.5s;
+            }
+            &:hover::before{
+                width: 100%;
+                transition: all 0.5s;
+            }
+        }
+        &.filterImg {
+            position: relative;
+            transition: all 0.5s;
+            &:hover {
+                outline: 40px solid rgba(132,132,132,0.6);
+                outline-offset:-40px;
+            }
+            &:hover .feed-img_filter {
+                opacity: 1;
+                overflow: visible;
+            }
+        }
+    }
+    &-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        backdrop-filter: blur(5px);
+        background: none;
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_content {
+            min-width: 360px;
+            padding: 30px 24px;
+            border: 2px solid $colorBorder;
+            box-shadow: 0 1px 20px rgba(32, 43, 45, .5);
+            border-radius: 24px;
+            background: #ffffff;
+            position: relative;
+        }
+        &_close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            &::after {
+                position: absolute;
+                content: '';
+                top: 9px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: #222222;
+                transform: rotate(45deg);
+            }
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: 9px;
+                right: 0;
+                width: 100%;
+                height: 2px;
+                background: #222222;
+                transform: rotate(-45deg);
+            }
+            &:hover {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+        }
+        &_title {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        &_user {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 24px;
+            &_img {
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                border: 1px solid $colorBorder;
+                margin-right: 12px;
+                overflow: hidden;
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import "libs/normalize";
+@import "libs/bootstrap-reboot.min";
+@import "base/variables";
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222222;
+}
+
+.container {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+body {
+    overflow: hidden auto;
+}
+textarea {resize: none}
+
+@import "blocks/login";
+@import "blocks/btn";
+@import "blocks/main";
+@import "blocks/header";
+@import "blocks/feed";
+@import "blocks/comment";
+@import "blocks/pagination";
+@import "blocks/filter";
+@import "blocks/chat";

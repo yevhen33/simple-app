@@ -1,0 +1,34 @@
+.main {
+    text-align: center;
+    padding: 100px 0;
+    & .user-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+        border: 2px solid #222222;
+        overflow: hidden;
+        margin: 0 auto;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+#wrapperChange {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    background: none;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.post {
+        position: relative;
+        z-index: 1;
+    }
+}

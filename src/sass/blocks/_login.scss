@@ -1,0 +1,290 @@
+.root {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #daf3f3;
+    padding: 50px 0;
+    &.main {
+        display: block;
+        background: #ffffff;
+    }
+    &.chats {
+        display: block;
+        background: #ffffff;
+        padding: 100px 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+    & .form {
+        min-width: 360px;
+        padding: 60px 24px 80px;
+        border: 2px solid $colorBorder;
+        box-shadow: 0 1px 20px rgba(32, 43, 45, .5);
+        border-radius: 24px;
+        position: relative;
+        background: #f6ffff;
+        text-align: center;
+        &-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            & span {
+                opacity: 0;
+                z-index: -1;
+                position: absolute;
+            }
+        }
+        &-img {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 3px solid $colorBorder;
+            border-radius: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &-input {
+            display: flex;
+            flex-direction: column;
+            align-items:flex-start;
+            justify-content: flex-start;
+            margin: 24px 0;
+            position: relative;
+            & label {
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+            & input {
+                width: 100%;
+                border: 1px solid $colorBorder;
+                padding: 8px 12px;
+                border-radius: 8px;
+                outline: none;
+                &:hover {
+                    box-shadow: 0 0 4px rgba(32, 43, 45, .5);
+                }
+                &:focus {
+                    outline: 2px solid $colorBorder;
+                }
+            }
+            & textarea {
+                width: 100%;
+                border: 1px solid $colorBorder;
+                padding: 8px 12px;
+                border-radius: 4px;
+                outline: none;
+                &:hover {
+                    box-shadow: 0 0 4px rgba(32, 43, 45, .5);
+                }
+                &:focus {
+                    outline: 2px solid $colorBorder;
+                }
+                &.big {
+                    height: 160px;
+                }
+                &::-webkit-scrollbar {
+                    width:3px;
+                    background-color:#bdbdbd;
+                    outline:1px solid #fff;
+                    outline-offset:-1px
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color:$colorBorder;
+                    border-radius:1em
+                }
+            }
+            & input[type=radio] {
+                width: 12px;
+                border: none;
+                border-radius: 100%;
+                margin-right: 6px;
+                &:focus {
+                    outline: none;
+                }
+                &:hover {
+                    border-radius: 100%;
+                    box-shadow: none;
+                    cursor: pointer;
+                }
+            }
+            &_radio {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+            & .eye {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                right: 12px;
+                bottom: 16px;
+                cursor: pointer;
+                & img {
+                    width: 100%;
+                }
+                &::before {
+                    content:'';
+                    position: absolute;
+                    width: 100%;
+                    height: 1px;
+                    background: #222222;
+                    bottom:3px;
+                    transform: rotate(45deg);;
+                }
+                &.show {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+            &.show-error {
+                & input {
+                    border: 1px solid $colorError;
+                    box-shadow: 0 0 4px rgba(160, 96, 96, 0.5);
+                }
+                & .input-error {
+                    opacity: 1;
+                }
+            }
+        }
+        &-label {
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0; 
+            text-align: left;
+        }
+        &-radio {
+            margin-right: 24px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            & label {
+                text-transform: uppercase;
+                font-size: 14px;
+            }
+        }
+        &-change {
+            width: 100%;
+            font-size: 14px;
+            font-weight: 600;
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            & span {
+                font-size: 16px;
+                color:$colorBtn;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+        &-foto {
+            align-items: center;
+            &.show-error .form-foto_post {
+                border: 2px solid $colorError;
+            }
+            &_title {
+                font-size: 18px;
+                line-height: 18px;
+                font-weight: 600;
+                & span {
+                    font-size: 14px;
+                }
+            }
+            &_text {
+                font-size: 12px;
+                font-weight: 600;
+            }
+            position: relative;
+            overflow: hidden;
+            &.form-input {
+                padding-bottom: 24px;
+                margin-bottom: 12px;
+                & .input-error {
+                    bottom:0;
+                }
+            }
+            & input[type=file]{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transform: scale(20);
+                letter-spacing: 10em; 
+                opacity: 0;
+                cursor: pointer;
+            }
+            &_btn {
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                overflow: hidden;
+                background-color: transparent;
+                font-size: 1.5rem;
+                border: 2px solid #222222;
+                padding: 2px;
+                margin: 12px auto;
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                &:hover {
+                    background-color: #848484fb;
+                    border: 2px solid $colorBorder;
+                }
+            }
+            &_post {
+                width: 200px;
+                height: 150px;
+                overflow: hidden;
+                background-color: transparent;
+                font-size: 1.5rem;
+                border: 2px solid $colorBorder;
+                padding: 1px;
+                margin: 12px auto;
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    } 
+    & .form-error {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        text-align: center;
+        color:$colorError;
+        font-size: 12px;
+        font-weight: 600;
+        display: none;
+        &.show {
+            display: block;
+        }
+    }
+    & .input-error {
+        position: absolute;
+        bottom: -16px;
+        left: 12px;
+        color:$colorError;
+        font-size: 10px;
+        font-weight: 600;
+        transition: all 0.6s;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,48 @@
+header {
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: -1;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    &.active {
+        z-index: 2;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        & nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            & a {
+                margin-right: 18px;
+                font-weight: 600;
+                color: $colorBtn;
+                text-transform: uppercase;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    background: $colorBorder;
+                    bottom: -5px;
+                    left: 0;
+                    transition: all 0.5s;
+                }
+                &:hover {
+                    color:$colorBorder;
+                    text-decoration: none;
+                }
+                &:hover::before {
+                    width: 100%;
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
+}
